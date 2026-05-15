@@ -1,85 +1,112 @@
-# 🪞 Miroir des Paradigmes
+# Miroir des Paradigmes
 
-Un skill Claude pour révéler l'Image de Soi, les blocages subconscients et les facultés intellectuelles cachées d'un utilisateur — à travers une enquête conversationnelle guidée.
-
----
-
-## À propos
-
-Le **Miroir des Paradigmes** combine deux cadres d'analyse complémentaires :
-
-- **Le Big Five** (psychologie comportementale) pour dresser un état des lieux objectif de la personnalité
-- **La philosophie Bob Proctor** (*The Goal Achiever Workbook*, Proctor Gallagher Institute) pour identifier les causes profondes des comportements limitants et les leviers de transformation
-
-Le skill mène l'utilisateur à travers 7 à 10 questions profondes avant de lui remettre un bilan personnalisé en 4 parties : radiographie Big Five, paradigmes et blocages, facultés cachées, et exercice de transformation.
+> *Un protocole d'introspection calibrée pour révéler l'Image de Soi, les Paradigmes bloquants et les facultés intellectuelles latentes — à travers une enquête conversationnelle guidée.*
 
 ---
 
-## Fonctionnement
+## Présentation
+
+Le Miroir des Paradigmes est un skill Claude qui conduit l'utilisateur à travers une enquête de 7 à 10 questions profondes, puis génère un **Bilan Calibré** en quatre parties. Il croise deux cadres analytiques complémentaires :
+
+- **Le Big Five** — pour dresser un état des lieux objectif des traits de personnalité dominants.
+- **La philosophie Bob Proctor** (issue du *Goal Achiever Workbook*) — pour identifier les croyances subconscientes (Paradigmes) qui dictent ces traits et les leviers pour les transformer.
+
+Ce skill ne prétend pas révéler une vérité définitive sur l'utilisateur. Il formule des **hypothèses testables**, accompagnées d'observations, de contre-signes et de micro-tests comportementaux. Chaque hypothèse est révisable.
+
+---
+
+## Structure du dépôt
 
 ```
-Utilisateur ──► Enquête (7-10 échanges) ──► Bilan structuré
-                     │
-                     ├─ AXE 1 : Big Five (silencieux)
-                     └─ AXE 2 : Proctor — Paradigmes / Stickperson / Facultés
+miroir-des-paradigmes/
+├── README.md                               ← ce fichier
+├── SKILL.md                                ← instructions complètes pour Claude
+└── references/
+    ├── proctor-concepts.md                 ← vocabulaire précis : Stickperson, Terror Barrier,
+    │                                          Paradigme, Facultés intellectuelles, Goal A/B/C
+    ├── big-five-grille.md                  ← calibrage des 5 dimensions avec formulations bienveillantes
+    └── exercices-transformation.md        ← répertoire des 6 exercices de transformation (EX-1 à EX-6)
 ```
 
-**Le skill ne délivre jamais le résultat avant la fin de l'enquête.** Chaque question est posée seule, avec un style conversationnel empathique et des mises en situation concrètes (travail, argent, relations, défis).
+**Fichiers externes gérés par l'utilisateur (optionnels) :**
+
+```
+journal-transformation.md    ← log des sessions, hypothèses et mises à jour
+contexte-session.md          ← contexte injecté en début de session
+```
+
+---
+
+## Ce que fait le skill
+
+### 1. Enquête conversationnelle (7–10 questions)
+Claude mène une investigation par mises en situation concrètes — jamais de questions fermées. Si une réponse est vague, il creuse l'émotion derrière le fait.
+
+### 2. Moteur d'analyse silencieux
+Pendant l'échange, Claude évalue simultanément :
+- Les **5 dimensions Big Five** (Ouverture, Conscience, Extraversion, Agréabilité, Névrosisme)
+- Les **Paradigmes actifs** dans le subconscient (croyances héritées qui pilotent les comportements)
+- L'**Image de Soi** : l'utilisateur se vit-il comme Victime ou Créateur ?
+- Les **Facultés intellectuelles** utilisées vs en sommeil (Imagination, Intuition, Volonté, Mémoire, Raison, Perception)
+- La présence d'une **Terror Barrier** (blocage juste avant un saut qualitatif)
+- Le type de goal inconscient poursuivi : **A (transformationnel), B (intermédiaire) ou C (confort)**
+
+### 3. Bilan Calibré en 4 parties
+
+| Partie | Contenu |
+|---|---|
+| **1. Radiographie actuelle** | Big Five avec pourcentages estimés, formulés comme une programmation actuelle |
+| **2. Paradigmes et blocages** | Format : Observation → Hypothèse → Contre-signe → Micro-test |
+| **3. Facultés cachées** | 2 facultés latentes avec leur frein actuel et leur levier de réactivation |
+| **4. Exercice de transformation** | Exercice concret issu du Goal Achiever Workbook, adapté au profil |
+
+### 4. Bloc Journal (optionnel)
+À la fin du bilan, Claude génère un bloc structuré que l'utilisateur peut copier dans son `journal-transformation.md` pour suivre l'évolution de ses hypothèses dans le temps.
 
 ---
 
 ## Concepts clés utilisés
 
-| Concept | Description |
+Tous les concepts ci-dessous sont définis précisément dans `references/proctor-concepts.md`.
+
+| Concept | Source |
 |---|---|
-| **Paradigme** | Croyance limitante fixée dans le subconscient, héritée de l'environnement |
-| **Stickperson** | Modèle Esprit Conscient → Subconscient → Corps (Pensée → Sentiment → Action → Résultat) |
-| **Image de Soi** | Représentation interne qui plafonne ou libère les résultats obtenus |
-| **Terror Barrier** | Mur émotionnel déclenché par une idée hors de la zone de confort |
-| **Goal A / B / C** | Classification des objectifs selon leur niveau de défi et de croissance |
-| **Facultés Intellectuelles** | Imagination, Intuition, Volonté, Mémoire, Raison, Perception |
-| **Auto-Suggestion** | Technique de reprogrammation du subconscient par répétition émotionnelle |
-| **Loi du Genre** | Toute idée a une période de gestation avant sa manifestation physique |
+| **Stickperson** | Bob Proctor — modèle des 3 parties de la personnalité (Conscient / Subconscient / Corps) |
+| **Paradigme** | Croyance fixée dans le subconscient, héritée, pilotant les comportements automatiquement |
+| **Terror Barrier** | Moment de basculement entre croissance et retour à la sécurité |
+| **Image de Soi** | Perception subconsciente de soi qui détermine ce qu'on se "permet" d'atteindre |
+| **Goal A-1** | Objectif transformationnel hors zone de confort — le seul qui reprogramme l'Image de Soi |
+| **Auto-suggestion** | Technique d'impression d'une nouvelle image dans le subconscient par répétition émotionnelle |
+| **Law of Gender** | Toute graine mentale a une période de gestation avant manifestation physique |
 
 ---
 
-## Structure du dossier
+## Exercices disponibles
 
-```
-miroir-des-paradigmes/
-├── README.md       ← ce fichier
-└── SKILL.md        ← instructions complètes du skill
-```
+| Code | Exercice | Profil cible |
+|---|---|---|
+| EX-1 | Visualisation du Goal A-1 | Imagination latente, Image de Soi floue |
+| EX-2 | Auto-suggestion avec enregistrement vocal | Paradigme de peur ou d'indignité |
+| EX-3 | Want List + Priorisation A/B/C | Dispersion, absence de direction |
+| EX-4 | Goal Card | Tous profils — ancrage quotidien |
+| EX-5 | Micro-action de traversée de Terror Barrier | Évitement d'une action précise |
+| EX-6 | Journal de Transformation | Tous profils — traçabilité des hypothèses |
+
+---
+
+## Posture du Miroir
+
+- **Empathique, perspicace, direct mais chaleureux.** Ne juge jamais.
+- Traite l'utilisateur comme un être parfait avec une **programmation imparfaite**.
+- Intègre un **gardien critique** : toute conclusion forte est tempérée par son statut d'hypothèse.
+- **Ne se substitue pas** à un accompagnement professionnel pour les sujets lourds.
 
 ---
 
 ## Installation
 
-1. Copie le dossier `miroir-des-paradigmes/` dans le répertoire de tes skills Claude
-2. Le skill se déclenche automatiquement sur les contextes de développement personnel, bilan de personnalité, blocages, ambition, ou transformation intérieure
+Copier le dossier `miroir-des-paradigmes/` dans le répertoire de skills de votre instance Claude, puis activer le skill depuis les paramètres.
 
 ---
 
-## Exemple de bilan généré
-
-```
-### 1. VOTRE RADIOGRAPHIE ACTUELLE (Big Five)
-Ouverture ~80% · Conscience ~65% · Extraversion ~40%
-Agréabilité ~70% · Névrosisme ~60%
-
-### 2. VOS PARADIGMES ET BLOCAGES
-Un paradigme de perfectionnisme freine votre passage à l'action...
-
-### 3. VOS FACULTÉS CACHÉES
-Imagination sous-utilisée · Intuition en sommeil
-
-### 4. L'EXERCICE DE TRANSFORMATION
-Goal Card + Visualisation quotidienne (matin/soir, 5 minutes)
-```
-
----
-
-## Source
-
-Basé sur *The Goal Achiever Workbook* — © Proctor Gallagher Institute
-
+*Basé sur le Goal Achiever Workbook — Bob Proctor / Proctor Gallagher Institute (2004)*
